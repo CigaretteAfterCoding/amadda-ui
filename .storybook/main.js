@@ -1,6 +1,3 @@
-const path = require("path");
-const { merge } = require("webpack-merge");
-
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
