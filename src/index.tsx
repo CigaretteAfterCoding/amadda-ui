@@ -5,9 +5,7 @@ function index() {
   return (
     <IndexBlock  >
       asdfas
-
-      sadf
-
+      sad
       asdf
     </IndexBlock>
   );
