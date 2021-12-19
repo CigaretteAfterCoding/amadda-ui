@@ -3,11 +3,7 @@
   "packageManager": "yarn@3.1.1",
   "scripts": {
     "dev": "webpack serve --config webpack.dev.js",
-    "build": "cross-env INLINE_RUNTIME_CHUNK=false webpack build --config webpack.prod.js",
-    "predeploy": "npm run build",
-    "deploy": "NODE_ENV=production pm2 start npm -- start",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "sb": "start-storybook -p 6006"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
