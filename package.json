@@ -1,0 +1,11 @@
+{
+  "name": "amadda-ui",
+  "packageManager": "yarn@3.1.1",
+  "dependencies": {
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.37",
+    "typescript": "^4.5.4"
+  }
+}
