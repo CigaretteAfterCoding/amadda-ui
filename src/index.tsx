@@ -1,18 +1,10 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-function index() {
-  return (
-    <IndexBlock  >
-      asdfas
-      sad
-      asdf
-    </IndexBlock>
-  );
-}
-
-const IndexBlock = styled.div`
-  
-`;
-
-export default index;
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root'),
+);
