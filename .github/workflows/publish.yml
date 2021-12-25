@@ -11,7 +11,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16.x'
-      - run: yarn npm login && echo "bong0418" && echo ${{secrets.PASSWORD}}
+      - run: yarn npm login | echo "bong0418" | echo ${{secrets.PASSWORD}}
       - run: yarn npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
