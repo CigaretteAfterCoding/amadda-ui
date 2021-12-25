@@ -13,8 +13,8 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org/'
       - run: yarn install
-      - run: yarn run build
-      - run: npm publish
+      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+      - run: yarn npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
           
