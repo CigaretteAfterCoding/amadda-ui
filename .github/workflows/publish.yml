@@ -11,10 +11,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16.x'
-      # - uses: borales/actions-yarn@v2.3.0
-      #   with:
-      #     auth-token: ${{ secrets.NPM_TOKEN }}
-      - run: yarn npm login
       - run: yarn npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
