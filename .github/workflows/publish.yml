@@ -2,7 +2,7 @@ name: Publish npm package
 on:
   push:
     branches:
-      - dev
+      - feature/publish-yml
 jobs:
   publish-npm-package :
     runs-on: ubuntu-latest
