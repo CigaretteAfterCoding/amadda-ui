@@ -12,6 +12,10 @@ jobs:
         with:
           node-version: '16.x'
           registry-url: 'https://npm.pkg.github.com/'
+      - run: yarn npm login
+        with: 
+          Username: dasf
+          Password: asdfadfsa
       - run: yarn npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
