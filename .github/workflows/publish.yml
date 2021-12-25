@@ -2,19 +2,16 @@ name: Publish npm package
 on:
   push:
     branches:
-      - dev
+      - main
 jobs:
-  publish-npm-package :
+  publish :
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: '16.x'
-      - uses: borales/actions-yarn@v2.3.0
-        with:
-          auth-token: ${{ secrets.NPM_TOKEN }}
-      # - run: yarn npm login
-      # - run: yarn npm publish
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - run: yarn config set npmAuthIdent '${{secrets.NPM_USERNAME}}:${{secrets.NPM_PASSWORD}}'
+      - run: yarn npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
