@@ -16,4 +16,4 @@ jobs:
       - run: yarn npm login
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-      - run: yarn npm publish --access public:_authToken ${{secrets.NPM_TOKEN}}
+      - run: yarn npm publish --access public
