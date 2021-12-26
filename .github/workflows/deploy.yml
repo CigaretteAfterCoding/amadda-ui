@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - env/releaserc
 
 jobs:
   deploy:
@@ -21,6 +22,7 @@ jobs:
         run: yarn run semantic-release
         env: 
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Install and Build
         run: |
