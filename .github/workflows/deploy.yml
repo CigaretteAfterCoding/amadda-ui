@@ -17,12 +17,6 @@ jobs:
         with:
           node-version: '16.x'
 
-      - name: Semantic Release
-        run: yarn run semantic-release
-        env: 
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-
       - name: Install and Build
         run: |
           yarn install
@@ -33,3 +27,15 @@ jobs:
         with:
           branch: gh-pages
           folder: storybook-static
+
+      - name: Semantic Release
+        run: yarn run semantic-release
+        env: 
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Publish npm package
+        run: yarn config set npmAuthIdent '${{secrets.NPM_USERNAME}}:${{secrets.NPM_PASSWORD}}'
+        run: yarn npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
