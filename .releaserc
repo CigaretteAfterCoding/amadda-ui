@@ -1,7 +1,6 @@
 {
   "branches": [
-    "main",
-    "env/releaserc"
+    "main"
   ],
   "tagFormat": "${version}",
   "repository": "https://github.com/CigaretteAfterCoding/amadda-ui",
