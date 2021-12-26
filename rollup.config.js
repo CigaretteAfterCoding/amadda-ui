@@ -22,7 +22,7 @@ export default {
       preferBuiltins: true,
     }),
     commonjs({
-      include: ['../../.yarn/cache/**'],
+      include: ['.yarn/cache/**'],
     }),
     typescript({ useTsconfigDeclarationDir: true }),
     babel({ extensions, include: ['src/**/*'], runtimeHelpers: true }),
@@ -33,7 +33,7 @@ export default {
   preserveModules: true,
   output: [
     {
-      dir: 'dist',
+      dir: 'dist/src',
       format: 'cjs',
       sourcemap: true,
       exports: 'named',
