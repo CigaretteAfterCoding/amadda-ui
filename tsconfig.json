@@ -13,8 +13,8 @@
     "isolatedModules": true,
     "noEmit": true,
     "declaration": true,
-    "declarationDir": "dist",
-    "outDir": "dist",
+    "declarationDir": "dist/src",
+    "outDir": "dist/src",
     "jsx": "preserve",
     "forceConsistentCasingInFileNames": true
   },
