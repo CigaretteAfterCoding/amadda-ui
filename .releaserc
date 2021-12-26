@@ -1,7 +1,7 @@
 {
   "release": {
     "branches": [
-      "env/releasercgit",
+      "main",
       "next"
     ]
   },
