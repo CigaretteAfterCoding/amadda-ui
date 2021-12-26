@@ -1,0 +1,10 @@
+{
+  "release": {
+    "branches": [
+      "master",
+      "next"
+    ]
+  },
+  "tagFormat": "${version}",
+  "repository": "https://github.com/CigaretteAfterCoding/amadda-ui"
+}
