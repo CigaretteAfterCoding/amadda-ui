@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - env/releaserc
 
 jobs:
   deploy:
@@ -28,5 +29,5 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
-          branch: gh-pages 
+          branch: gh-pages
           folder: storybook-static

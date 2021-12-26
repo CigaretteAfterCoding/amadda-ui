@@ -6,5 +6,8 @@
     ]
   },
   "tagFormat": "${version}",
-  "repository": "https://github.com/CigaretteAfterCoding/amadda-ui"
+  "repository": "https://github.com/CigaretteAfterCoding/amadda-ui",
+  "plugins": [
+    "@semantic-release/github"
+  ]
 }
