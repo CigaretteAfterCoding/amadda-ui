@@ -1,22 +1,45 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from '@emotion/styled';
 
-function Button() {
+interface ButtonProps {
+  href?: string;
+  target?: string;
+}
+
+function Button(
+  {
+    href,
+    ...others
+  }: ButtonProps,
+  ref: React.Ref<HTMLDivElement>,
+) {
   return (
-    <ButtonBlock>
-      버튼이에용
+    <ButtonBlock
+      as={href ? 'a' : 'button'}
+      href={href}
+      ref={ref}
+      {...others}
+    >
+      버튼이에용!
     </ButtonBlock>
   );
 }
 
-const ButtonBlock = styled.div`
+interface ButtonBlockProps {
+  href?: string;
+}
+
+const ButtonBlock = styled.div<ButtonBlockProps>`
   background-color: gray;
+  color: black;
   cursor: pointer;
   padding: 10px;
+  user-select: none;
+  text-decoration: none;
    
   &:hover {
     background-color: lightgray;
   }
 `;
 
-export default Button;
+export default forwardRef(Button);
