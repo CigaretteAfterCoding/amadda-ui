@@ -10,7 +10,10 @@ export default {
 export const Default = () => {
   return (
     <Wrapper>
-      <Button />
+      <Button
+        href="https://www.naver.com"
+        target='_blank'
+      />
     </Wrapper>
   );
 };
