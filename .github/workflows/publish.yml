@@ -12,6 +12,7 @@ jobs:
         with:
           node-version: '16.x'
       - run: yarn config set npmAuthIdent '${{secrets.NPM_USERNAME}}:${{secrets.NPM_PASSWORD}}'
+      - run: yarn run build
       - run: yarn npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
