@@ -4,7 +4,6 @@
     "main",
     "env/releaserc",
     "next",
-    "next-major",
     {
       "name": "beta",
       "prerelease": true
