@@ -8,13 +8,6 @@
     "@semantic-release/github",
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
-    [
-      "@semantic-release/npm",
-      {
-        "tarballDir": "dist/src",
-        "pkgRoot": "dist/src"
-      }
-    ],
     "@semantic-release/git"
   ]
 }
