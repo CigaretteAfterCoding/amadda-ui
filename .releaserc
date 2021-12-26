@@ -1,18 +1,10 @@
 {
-  "branches": [
-    "+([0-9])?(.{+([0-9]),x}).x",
-    "main",
-    "env/releaserc",
-    "next",
-    {
-      "name": "beta",
-      "prerelease": true
-    },
-    {
-      "name": "alpha",
-      "prerelease": true
-    }
-  ],
+  "release": {
+    "branches": [
+      "main",
+      "next"
+    ]
+  },
   "tagFormat": "${version}",
   "repository": "https://github.com/CigaretteAfterCoding/amadda-ui",
   "plugins": [
