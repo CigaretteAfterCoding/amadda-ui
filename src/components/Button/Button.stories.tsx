@@ -13,6 +13,7 @@ export const Default = () => {
       <Button
         href="https://www.naver.com"
         target='_blank'
+        size='xsmall'
       />
     </Wrapper>
   );
