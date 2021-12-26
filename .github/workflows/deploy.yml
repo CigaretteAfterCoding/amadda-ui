@@ -34,8 +34,10 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
 
-      - name: Publish npm package
+      - name: Set yarn config
         run: yarn config set npmAuthIdent '${{secrets.NPM_USERNAME}}:${{secrets.NPM_PASSWORD}}'
+
+      - name: Publish npm package
         run: yarn npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
