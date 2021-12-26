@@ -3,6 +3,7 @@
     "branches": [
       "+([0-9])?(.{+([0-9]),x}).x",
       "main",
+      "env/releaserc",
       "next",
       "next-major",
       {
