@@ -17,13 +17,18 @@ jobs:
         with:
           node-version: '16.x'
 
-      - name: Install and Build
-        run: |
-          yarn install
-          yarn run build:storybook
+      - name: Build
+        run: yarn run build
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.1.7
-        with:
-          branch: gh-pages 
-          folder: storybook-static
+      - name: Semantic Release & Publish npm
+        run: yarn run semantic-release
+        env: 
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+
+
+      # - name: Set yarn config
+      #   run: yarn config set npmAuthIdent '${{secrets.NPM_USERNAME}}:${{secrets.NPM_PASSWORD}}'
+
+      # - name: Publish npm package
+      #   run: yarn npm publish
