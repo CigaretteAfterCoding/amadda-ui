@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import colors from './colors';
 
 export default {
-  title: 'UI/Color',
+  title: 'System/Color',
 };
 
 export const Palette = () => {
