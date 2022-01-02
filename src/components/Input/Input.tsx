@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { colors } from '../..';
 
 export type InputSize = 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
 
@@ -43,39 +42,35 @@ function Input(
 ) {
   return (
     <InputBlock
-      size={size}
+      ref={ref}
+      {...testId && { 'data-testid': testId }}
+      inputSize={size}
+      type={type}
       fullWidth={fullWidth}
+      id={id}
+      className={className}
+      required={required}
+      placeholder={placeholder}
+      value={value}
+      name={name}
       disabled={disabled}
       error={error}
-    >
-      <InputBase
-        ref={ref}
-        {...testId && { 'data-testid': testId }}
-        type={type}
-        id={id}
-        className={className}
-        required={required}
-        placeholder={placeholder}
-        value={value}
-        name={name}
-        onChange={onChange}
-        {...inputProps}
-      />
-    </InputBlock>
+      onChange={onChange}
+      {...inputProps}
+    />
   );
 }
 
-type InputBlockProps = Pick<InputProps, 'size' | 'fullWidth' | 'disabled' | 'error'>
+interface InputBlockProps {
+  inputSize: InputSize;
+  fullWidth: boolean;
+  error: boolean;
+}
 
-const InputBlock = styled.div<InputBlockProps>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
+const InputBlock = styled.input<InputBlockProps>`
+  width: 100%;
   border-radius: 4px;
-  border: none;
-  background-color: ${colors.primary[500]};
-  color: ${colors.white};
+  border: 1px solid red;
 
   ${({ fullWidth }) => fullWidth && css`
       width: 100%;
@@ -88,13 +83,14 @@ const InputBlock = styled.div<InputBlockProps>`
       background-color: lightgray;
   `};
 
-  ${({ size }) => {
-    switch (size) {
+  ${({ inputSize }) => {
+    switch (inputSize) {
       case 'xlarge':
         return css`
           font-size: 16px;
           width: 160px;
           height: 40px;
+          padding: 4px;
         `;
       case 'large':
         return css`
@@ -107,6 +103,7 @@ const InputBlock = styled.div<InputBlockProps>`
           font-size: 12px;
           width: 120px;
           height: 30px;
+          padding: 14px;
         `;
       case 'small':
         return css`
@@ -124,7 +121,5 @@ const InputBlock = styled.div<InputBlockProps>`
   }
   }
 `;
-
-const InputBase = styled.input``;
 
 export default forwardRef(Input);
