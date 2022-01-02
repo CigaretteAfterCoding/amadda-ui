@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
+import { colors } from '../..';
 
 export type InputSize = 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
 
@@ -70,7 +71,12 @@ interface InputBlockProps {
 const InputBlock = styled.input<InputBlockProps>`
   width: 100%;
   border-radius: 4px;
-  border: 1px solid red;
+  border: 2px solid ${colors.gray[300]};
+  outline: none;
+
+  &:focus {
+    border: 2px solid ${colors.primary[500]};
+  }
 
   ${({ fullWidth }) => fullWidth && css`
       width: 100%;
@@ -79,43 +85,43 @@ const InputBlock = styled.input<InputBlockProps>`
     `
   }
 
-  ${({ disabled }) => disabled && css`
-      background-color: lightgray;
-  `};
-
   ${({ inputSize }) => {
     switch (inputSize) {
       case 'xlarge':
         return css`
           font-size: 16px;
-          width: 160px;
+          min-width: 160px;
           height: 40px;
           padding: 4px;
+          padding: 12px;
         `;
       case 'large':
         return css`
           font-size: 14px;
-          width: 140px;
+          min-width: 140px;
           height: 35px;
+          padding: 10px;
         `;
       case 'medium':
         return css`
           font-size: 12px;
-          width: 120px;
+          min-width: 120px;
           height: 30px;
-          padding: 14px;
+          padding: 8px;
         `;
       case 'small':
         return css`
           font-size: 10px;
-          width: 100px;
+          min-width: 100px;
           height: 25px;
+          padding: 6px;
         `;
       case 'xsmall':
         return css`
           font-size: 8px;
-          width: 80px;
+          min-width: 80px;
           height: 20px;
+          padding: 4px;
         `;
     }
   }

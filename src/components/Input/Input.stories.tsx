@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import Input from './Input';
+import Input, { InputSize } from './Input';
 
 export default {
   title: 'UI/Input',
@@ -21,6 +21,57 @@ export const Default = () => {
         onChange={handleChangeValue}
       />
     </Wrapper>
+  );
+};
+
+const SIZES: InputSize[] = ['xlarge', 'large', 'medium', 'small', 'xsmall'];
+
+export const Size = () => {
+  const [value, setValue] = useState('');
+
+  const handleChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+
+  return (
+    <Wrapper>
+      {SIZES.map(size => (
+        <Input
+          key={size}
+          size={size}
+          placeholder={size}
+          value={value}
+          onChange={handleChangeValue}
+        />
+      ))}
+    </Wrapper>
+  );
+};
+
+export const Disabled = () => {
+  return (
+    <Wrapper>
+      <Input
+        placeholder='disabled'
+        disabled
+      />
+    </Wrapper>
+  );
+};
+
+export const FullWidth = () => {
+  const [value, setValue] = useState('');
+
+  const handleChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+
+  return (
+    <Input
+      fullWidth
+      value={value}
+      onChange={handleChangeValue}
+    />
   );
 };
 
