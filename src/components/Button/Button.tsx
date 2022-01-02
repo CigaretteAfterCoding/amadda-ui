@@ -72,31 +72,31 @@ const ButtonBlock = styled.div<ButtonBlockProps>`
       case 'xlarge':
         return css`
           font-size: 16px;
-          width: 160px;
+          min-width: 160px;
           height: 40px;
         `;
       case 'large':
         return css`
           font-size: 14px;
-          width: 140px;
+          min-width: 140px;
           height: 35px;
         `;
       case 'medium':
         return css`
           font-size: 12px;
-          width: 120px;
+          min-width: 120px;
           height: 30px;
         `;
       case 'small':
         return css`
           font-size: 10px;
-          width: 100px;
+          min-width: 100px;
           height: 25px;
         `;
       case 'xsmall':
         return css`
           font-size: 8px;
-          width: 80px;
+          min-width: 80px;
           height: 20px;
         `;
     }
