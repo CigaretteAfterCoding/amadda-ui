@@ -105,7 +105,7 @@ const InputBlock = styled.input<InputBlockProps>`
           font-size: 14px;
           min-width: 140px;
           height: 35px;
-          padding: 11px;
+          padding: 10px;
         `;
         case 'medium':
           return css`
