@@ -23,7 +23,7 @@ function Button(
     children,
     ...others
   }: ButtonProps,
-  ref: React.Ref<HTMLDivElement>,
+  ref: React.Ref<HTMLDivElement>
 ) {
   return (
     <ButtonBlock
@@ -55,54 +55,58 @@ const ButtonBlock = styled.div<ButtonBlockProps>`
   background-color: ${colors.primary[500]};
   color: ${colors.white};
 
-  ${({ fullWidth }) => fullWidth && css`
+  ${({ fullWidth }) =>
+  fullWidth &&
+    css`
       width: 100%;
       min-width: 100%;
       max-width: 100%;
-    `
-  }
+    `}
 
-  ${({ disabled }) => disabled && css`
+  ${({ disabled }) =>
+      disabled &&
+    css`
       background-color: lightgray;
       cursor: not-allowed;
-  `};
+    `};
 
   ${({ size }) => {
-    switch (size) {
-      case 'xlarge':
-        return css`
-          font-size: 16px;
+      switch (size) {
+        case 'xlarge':
+          return css`
+          font-size: 14px;
+          font-weight: bold;
           min-width: 160px;
           height: 40px;
         `;
-      case 'large':
-        return css`
+        case 'large':
+          return css`
           font-size: 14px;
+          font-weight: bold;
           min-width: 140px;
           height: 35px;
         `;
-      case 'medium':
-        return css`
+        case 'medium':
+          return css`
           font-size: 12px;
           min-width: 120px;
           height: 30px;
         `;
-      case 'small':
-        return css`
+        case 'small':
+          return css`
           font-size: 10px;
           min-width: 100px;
           height: 25px;
         `;
-      case 'xsmall':
-        return css`
+        case 'xsmall':
+          return css`
           font-size: 8px;
           min-width: 80px;
           height: 20px;
         `;
-    }
-  }
-  }
-   
+      }
+    }}
+
   &:hover {
     background-color: ${colors.primary[700]};
   }
