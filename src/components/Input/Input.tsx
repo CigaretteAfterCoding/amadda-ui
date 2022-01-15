@@ -1,9 +1,9 @@
-import React, { forwardRef } from "react";
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
-import { colors } from "../..";
+import React, { forwardRef } from 'react';
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
+import { colors } from '../..';
 
-export type InputSize = "xlarge" | "large" | "medium" | "small" | "xsmall";
+export type InputSize = 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
 
 export interface InputProps {
   testId?: string;
@@ -25,8 +25,8 @@ export interface InputProps {
 function Input(
   {
     testId,
-    size = "medium",
-    type = "text",
+    size = 'medium',
+    type = 'text',
     fullWidth = false,
     name,
     placeholder,
@@ -34,7 +34,7 @@ function Input(
     className,
     disabled = false,
     required = false,
-    value = "",
+    value = '',
     error = false,
     inputProps = {},
     onChange,
@@ -44,7 +44,7 @@ function Input(
   return (
     <InputBlock
       ref={ref}
-      {...(testId && { "data-testid": testId })}
+      {...(testId && { 'data-testid': testId })}
       inputSize={size}
       type={type}
       fullWidth={fullWidth}
@@ -83,7 +83,7 @@ const InputBlock = styled.input<InputBlockProps>`
   }
 
   ${({ fullWidth }) =>
-    fullWidth &&
+  fullWidth &&
     css`
       width: 100%;
       min-width: 100%;
@@ -91,45 +91,45 @@ const InputBlock = styled.input<InputBlockProps>`
     `}
 
   ${({ inputSize }) => {
-    switch (inputSize) {
-      case "xlarge":
-        return css`
+      switch (inputSize) {
+        case 'xlarge':
+          return css`
           font-size: 14px;
           min-width: 160px;
           height: 40px;
           padding: 4px;
           padding: 18px;
         `;
-      case "large":
-        return css`
+        case 'large':
+          return css`
           font-size: 14px;
           min-width: 140px;
           height: 35px;
           padding: 10px;
         `;
-      case "medium":
-        return css`
+        case 'medium':
+          return css`
           font-size: 12px;
           min-width: 120px;
           height: 30px;
           padding: 8px;
         `;
-      case "small":
-        return css`
+        case 'small':
+          return css`
           font-size: 10px;
           min-width: 100px;
           height: 25px;
           padding: 6px;
         `;
-      case "xsmall":
-        return css`
+        case 'xsmall':
+          return css`
           font-size: 8px;
           min-width: 80px;
           height: 20px;
           padding: 4px;
         `;
-    }
-  }}
+      }
+    }}
 `;
 
 export default forwardRef(Input);
