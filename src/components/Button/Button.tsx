@@ -1,9 +1,9 @@
-import React, { forwardRef } from 'react';
-import styled from '@emotion/styled';
-import { css } from '@emotion/react';
-import { colors } from '../..';
+import React, { forwardRef } from "react";
+import styled from "@emotion/styled";
+import { css } from "@emotion/react";
+import { colors } from "../..";
 
-export type ButtonSize = 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
+export type ButtonSize = "xlarge" | "large" | "medium" | "small" | "xsmall";
 
 export interface ButtonProps {
   href?: string;
@@ -18,17 +18,17 @@ function Button(
   {
     href,
     fullWidth = false,
-    size = 'medium',
+    size = "medium",
     disabled = false,
     children,
     ...others
   }: ButtonProps,
-  ref: React.Ref<HTMLDivElement>,
+  ref: React.Ref<HTMLDivElement>
 ) {
   return (
     <ButtonBlock
       ref={ref}
-      as={href ? 'a' : 'button'}
+      as={href ? "a" : "button"}
       href={href}
       fullWidth={fullWidth}
       size={size}
@@ -55,54 +55,58 @@ const ButtonBlock = styled.div<ButtonBlockProps>`
   background-color: ${colors.primary[500]};
   color: ${colors.white};
 
-  ${({ fullWidth }) => fullWidth && css`
+  ${({ fullWidth }) =>
+    fullWidth &&
+    css`
       width: 100%;
       min-width: 100%;
       max-width: 100%;
-    `
-  }
+    `}
 
-  ${({ disabled }) => disabled && css`
+  ${({ disabled }) =>
+    disabled &&
+    css`
       background-color: lightgray;
       cursor: not-allowed;
-  `};
+    `};
 
   ${({ size }) => {
     switch (size) {
-      case 'xlarge':
+      case "xlarge":
         return css`
-          font-size: 16px;
+          font-size: 14px;
+          font-weight: bold;
           min-width: 160px;
           height: 40px;
         `;
-      case 'large':
+      case "large":
         return css`
           font-size: 14px;
+          font-weight: bold;
           min-width: 140px;
           height: 35px;
         `;
-      case 'medium':
+      case "medium":
         return css`
           font-size: 12px;
           min-width: 120px;
           height: 30px;
         `;
-      case 'small':
+      case "small":
         return css`
           font-size: 10px;
           min-width: 100px;
           height: 25px;
         `;
-      case 'xsmall':
+      case "xsmall":
         return css`
           font-size: 8px;
           min-width: 80px;
           height: 20px;
         `;
     }
-  }
-  }
-   
+  }}
+
   &:hover {
     background-color: ${colors.primary[700]};
   }

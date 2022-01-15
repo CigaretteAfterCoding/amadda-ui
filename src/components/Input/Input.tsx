@@ -1,12 +1,12 @@
-import React, { forwardRef } from 'react';
-import styled from '@emotion/styled';
-import { css } from '@emotion/react';
-import { colors } from '../..';
+import React, { forwardRef } from "react";
+import styled from "@emotion/styled";
+import { css } from "@emotion/react";
+import { colors } from "../..";
 
-export type InputSize = 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
+export type InputSize = "xlarge" | "large" | "medium" | "small" | "xsmall";
 
 export interface InputProps {
-  testId?: string,
+  testId?: string;
   type?: string;
   fullWidth?: boolean;
   size?: InputSize;
@@ -25,8 +25,8 @@ export interface InputProps {
 function Input(
   {
     testId,
-    size = 'medium',
-    type = 'text',
+    size = "medium",
+    type = "text",
     fullWidth = false,
     name,
     placeholder,
@@ -34,17 +34,17 @@ function Input(
     className,
     disabled = false,
     required = false,
-    value = '',
+    value = "",
     error = false,
     inputProps = {},
     onChange,
   }: InputProps,
-  ref: React.Ref<HTMLInputElement>,
+  ref: React.Ref<HTMLInputElement>
 ) {
   return (
     <InputBlock
       ref={ref}
-      {...testId && { 'data-testid': testId }}
+      {...(testId && { "data-testid": testId })}
       inputSize={size}
       type={type}
       fullWidth={fullWidth}
@@ -70,53 +70,58 @@ interface InputBlockProps {
 
 const InputBlock = styled.input<InputBlockProps>`
   width: 100%;
-  border-radius: 4px;
-  border: 2px solid ${colors.gray[300]};
+  border-radius: 2px;
+  border: 1px solid ${colors.gray[300]};
   outline: none;
 
   &:focus {
     border: 2px solid ${colors.primary[500]};
   }
 
-  ${({ fullWidth }) => fullWidth && css`
+  &::placeholder {
+    color: ${colors.gray[400]};
+  }
+
+  ${({ fullWidth }) =>
+    fullWidth &&
+    css`
       width: 100%;
       min-width: 100%;
       max-width: 100%;
-    `
-  }
+    `}
 
   ${({ inputSize }) => {
     switch (inputSize) {
-      case 'xlarge':
+      case "xlarge":
         return css`
-          font-size: 16px;
+          font-size: 14px;
           min-width: 160px;
           height: 40px;
           padding: 4px;
-          padding: 12px;
+          padding: 18px;
         `;
-      case 'large':
+      case "large":
         return css`
           font-size: 14px;
           min-width: 140px;
           height: 35px;
           padding: 10px;
         `;
-      case 'medium':
+      case "medium":
         return css`
           font-size: 12px;
           min-width: 120px;
           height: 30px;
           padding: 8px;
         `;
-      case 'small':
+      case "small":
         return css`
           font-size: 10px;
           min-width: 100px;
           height: 25px;
           padding: 6px;
         `;
-      case 'xsmall':
+      case "xsmall":
         return css`
           font-size: 8px;
           min-width: 80px;
@@ -124,8 +129,7 @@ const InputBlock = styled.input<InputBlockProps>`
           padding: 4px;
         `;
     }
-  }
-  }
+  }}
 `;
 
 export default forwardRef(Input);
