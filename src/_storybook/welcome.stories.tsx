@@ -7,7 +7,7 @@ export default {
 
 export const Welcome = () => (
   <WelcomeBlock>
-    아마따 디자인시스템
+    Amadda 디자인시스템
   </WelcomeBlock>
 );
 
